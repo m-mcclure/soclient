@@ -23,7 +23,7 @@
   webView.navigationDelegate = self;
   
   NSString *baseURL = @"https://stackexchange.com/oauth/dialog";
-  NSString *clientID = @"3197";
+  NSString *clientID = @"5568";
   NSString *redirectURI = @"https://stackexchange.com/oauth/login_success";
   NSString *finalURL = [NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@",baseURL,clientID,redirectURI];
   [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:finalURL]]];
@@ -42,6 +42,9 @@
     NSString *fullTokenParameter = components.firstObject;
     NSString *token = [fullTokenParameter componentsSeparatedByString:@"="].lastObject;
     NSLog(@"%@",token);
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self dismissViewControllerAnimated:NO completion:nil];
   }
   decisionHandler(WKNavigationActionPolicyAllow);
   

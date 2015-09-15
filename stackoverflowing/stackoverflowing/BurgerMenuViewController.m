@@ -79,10 +79,14 @@ CGFloat const kburgerButtonHeight = 50.0;
 -(void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   //check if you already have the token
-  /*
-  WebViewController *webVC = [[WebViewController alloc] init];
-  [self presentViewController:webVC animated:true completion:nil];
-   */
+  NSString *savedToken = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:@"token"];
+  if (savedToken) {
+    WebViewController *webVC = [[WebViewController alloc] init];
+    [self presentViewController:webVC animated:true completion:nil];
+  }
+  
+   
 }
 
 -(void)burgerButtonPressed:(UIButton *)sender {
@@ -171,9 +175,6 @@ CGFloat const kburgerButtonHeight = 50.0;
       [self.topViewController.view addGestureRecognizer:self.pan];
       self.burgerButton.userInteractionEnabled = true;
     }];
-    
-    
-    
   }];
 }
 #pragma mark - UITableViewDelegate
@@ -184,7 +185,6 @@ CGFloat const kburgerButtonHeight = 50.0;
   if (![newVC isEqual:self.topViewController]) {
     [self switchToViewController:newVC];
   }
-  
 }
 
 
