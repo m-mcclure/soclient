@@ -2,7 +2,7 @@
 //  BurgerMenuViewController.m
 //  StackOverflow
 //
-//  Created by Bradley Johnson on 9/14/15.
+//  Created by  on 9/14/15.
 //  Copyright (c) 2015 Code Fellows. All rights reserved.
 //
 
@@ -73,20 +73,16 @@ CGFloat const kburgerButtonHeight = 50.0;
   UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(topViewControllerPanned:)];
   [self.topViewController.view addGestureRecognizer:pan];
   self.pan = pan;
-  // Do any additional setup after loading the view.
 }
 
 -(void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
-  //check if you already have the token
   NSString *savedToken = [[NSUserDefaults standardUserDefaults]
                           stringForKey:@"token"];
-  if (savedToken) {
+  if (savedToken == nil) {
     WebViewController *webVC = [[WebViewController alloc] init];
     [self presentViewController:webVC animated:true completion:nil];
   }
-  
-   
 }
 
 -(void)burgerButtonPressed:(UIButton *)sender {
@@ -185,6 +181,7 @@ CGFloat const kburgerButtonHeight = 50.0;
   if (![newVC isEqual:self.topViewController]) {
     [self switchToViewController:newVC];
   }
+  
 }
 
 

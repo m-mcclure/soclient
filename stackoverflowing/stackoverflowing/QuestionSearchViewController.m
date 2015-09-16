@@ -7,6 +7,9 @@
 //
 
 #import "QuestionSearchViewController.h"
+#import "StackOverflowService.h"
+#import "Question.h"
+#import "DisplayQuestionViewController.h"
 
 @interface QuestionSearchViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -22,17 +25,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+  self.tableView.dataSource = self;
+  self.tableView.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
   [self.searchBar resignFirstResponder];
-  self.searchString = self.searchBar.text;
-  NSLog(@"%@", self.searchString);
+  [StackOverflowService questionsForSearchTerm:self.searchBar.text completionHandler:^(NSArray *questions, NSError *error) {
+    self.searchResults = questions;
+    NSLog(@"%lu", (unsigned long)self.searchResults.count);
+    NSLog(@"%@", self.searchResults[0]);
+    
+    [self.tableView reloadData];
+      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"All images have loaded"
+                                                    message:@"Yep"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+      [alert show];
+    
+  }];
+  
 }
 
 #pragma mark - UITableViewDataSource
@@ -53,8 +67,15 @@
   cell.backgroundColor = [UIColor colorWithRed:249.0/255 green:237.0/255 blue:224.0/255 alpha:1.0];
   
   int dataIndex = (int) indexPath.row % [self.searchResults count];
-//  Room *thisRoom = self.rooms[dataIndex];
-//  cell.textLabel.text = [NSString stringWithFormat:@"Room #%@", [thisRoom number]];
+  Question *thisQuestion = self.searchResults[dataIndex];
+  cell.textLabel.text = [NSString stringWithFormat:@"%@", [thisQuestion title]];
+  //NSString *avatarURL;
+  //@property (strong, nonatomic) UIImage *avatarPic;
+ // NSURL *avatarURL = thisQuestion.avatarURL;
+  NSURL *imageURL = [NSURL URLWithString:thisQuestion.avatarURL];
+  NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+ // UIImage *image = [UIImage imageWithData:imageData];
+  cell.imageView.image = [UIImage imageWithData:imageData];
     return cell;
   
 }
@@ -62,7 +83,11 @@
 #pragma mark - UITableViewDelegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  NSLog(@"yep");
+  Question *selectedQuestion = _searchResults[indexPath.row];
+  DisplayQuestionViewController *displayQVC = [[DisplayQuestionViewController alloc] init];
+  displayQVC.passedURLAsString = selectedQuestion.questionURL;
+  UINavigationController *displayQNavigationController = [[UINavigationController alloc] initWithRootViewController:displayQVC];
+  [self presentViewController:displayQNavigationController animated:true completion:nil];
 }
 
 /*

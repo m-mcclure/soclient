@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		348133C91BA8ECC10032E8E9 /* QuestionJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 348133C81BA8ECC10032E8E9 /* QuestionJSONParser.m */; };
+		348133CC1BA8ED250032E8E9 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 348133CB1BA8ED250032E8E9 /* Question.m */; };
 		3493E9371BA87C910079478D /* MyQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3493E9361BA87C910079478D /* MyQuestionsViewController.m */; };
 		3493E93A1BA87CA80079478D /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3493E9391BA87CA80079478D /* MyProfileViewController.m */; };
 		3493E9401BA880E20079478D /* Errors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3493E93F1BA880E20079478D /* Errors.m */; };
 		3493E9421BA8888F0079478D /* Test.json in Resources */ = {isa = PBXBuildFile; fileRef = 3493E9411BA8888F0079478D /* Test.json */; };
+		34A3F5F41BA8BE150090D43F /* StackOverflowService.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A3F5F31BA8BE150090D43F /* StackOverflowService.m */; };
+		34ADF8371BA9EB9D003BFF26 /* DisplayQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ADF8361BA9EB9D003BFF26 /* DisplayQuestionViewController.m */; };
 		34D953761BA766B70071ACC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D953751BA766B70071ACC7 /* main.m */; };
 		34D953791BA766B70071ACC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D953781BA766B70071ACC7 /* AppDelegate.m */; };
-		34D9537C1BA766B70071ACC7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D9537B1BA766B70071ACC7 /* ViewController.m */; };
 		34D9537F1BA766B70071ACC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D9537D1BA766B70071ACC7 /* Main.storyboard */; };
 		34D953811BA766B70071ACC7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D953801BA766B70071ACC7 /* Images.xcassets */; };
 		34D953841BA766B70071ACC7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D953821BA766B70071ACC7 /* LaunchScreen.xib */; };
@@ -21,6 +24,7 @@
 		34D9539B1BA766D00071ACC7 /* BurgerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D9539A1BA766D00071ACC7 /* BurgerMenuViewController.m */; };
 		34D9539E1BA768460071ACC7 /* QuestionSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D9539D1BA768460071ACC7 /* QuestionSearchViewController.m */; };
 		34D953A11BA77BC90071ACC7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D953A01BA77BC90071ACC7 /* WebViewController.m */; };
+		D0A9342E58B2A870825BE2EE /* libPods-stackoverflowing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B954F28FA1B6E7A37AF679 /* libPods-stackoverflowing.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33CF3F0FBB52E3691CCFBA9B /* Pods-stackoverflowing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stackoverflowing.release.xcconfig"; path = "Pods/Target Support Files/Pods-stackoverflowing/Pods-stackoverflowing.release.xcconfig"; sourceTree = "<group>"; };
+		348133C71BA8ECC10032E8E9 /* QuestionJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionJSONParser.h; sourceTree = "<group>"; };
+		348133C81BA8ECC10032E8E9 /* QuestionJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionJSONParser.m; sourceTree = "<group>"; };
+		348133CA1BA8ED250032E8E9 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		348133CB1BA8ED250032E8E9 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		3493E9351BA87C910079478D /* MyQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQuestionsViewController.h; sourceTree = "<group>"; };
 		3493E9361BA87C910079478D /* MyQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionsViewController.m; sourceTree = "<group>"; };
 		3493E9381BA87CA80079478D /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
@@ -41,13 +50,15 @@
 		3493E93E1BA880E20079478D /* Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Errors.h; sourceTree = "<group>"; };
 		3493E93F1BA880E20079478D /* Errors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Errors.m; sourceTree = "<group>"; };
 		3493E9411BA8888F0079478D /* Test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Test.json; sourceTree = "<group>"; };
+		34A3F5F21BA8BE150090D43F /* StackOverflowService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackOverflowService.h; sourceTree = "<group>"; };
+		34A3F5F31BA8BE150090D43F /* StackOverflowService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackOverflowService.m; sourceTree = "<group>"; };
+		34ADF8351BA9EB9D003BFF26 /* DisplayQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayQuestionViewController.h; sourceTree = "<group>"; };
+		34ADF8361BA9EB9D003BFF26 /* DisplayQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayQuestionViewController.m; sourceTree = "<group>"; };
 		34D953701BA766B70071ACC7 /* stackoverflowing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stackoverflowing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D953741BA766B70071ACC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34D953751BA766B70071ACC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		34D953771BA766B70071ACC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34D953781BA766B70071ACC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		34D9537A1BA766B70071ACC7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		34D9537B1BA766B70071ACC7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		34D9537E1BA766B70071ACC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34D953801BA766B70071ACC7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		34D953831BA766B70071ACC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -60,6 +71,8 @@
 		34D9539D1BA768460071ACC7 /* QuestionSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSearchViewController.m; sourceTree = "<group>"; };
 		34D9539F1BA77BC90071ACC7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		34D953A01BA77BC90071ACC7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		6A60287280363125A3B45C1F /* Pods-stackoverflowing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stackoverflowing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-stackoverflowing/Pods-stackoverflowing.debug.xcconfig"; sourceTree = "<group>"; };
+		75B954F28FA1B6E7A37AF679 /* libPods-stackoverflowing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stackoverflowing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A9342E58B2A870825BE2EE /* libPods-stackoverflowing.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +97,14 @@
 		3493E93B1BA87ED60079478D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				348133CA1BA8ED250032E8E9 /* Question.h */,
+				348133CB1BA8ED250032E8E9 /* Question.m */,
 				3493E93E1BA880E20079478D /* Errors.h */,
 				3493E93F1BA880E20079478D /* Errors.m */,
+				34A3F5F21BA8BE150090D43F /* StackOverflowService.h */,
+				34A3F5F31BA8BE150090D43F /* StackOverflowService.m */,
+				348133C71BA8ECC10032E8E9 /* QuestionJSONParser.h */,
+				348133C81BA8ECC10032E8E9 /* QuestionJSONParser.m */,
 				3493E9411BA8888F0079478D /* Test.json */,
 			);
 			name = Models;
@@ -103,6 +123,8 @@
 				3493E9391BA87CA80079478D /* MyProfileViewController.m */,
 				34D9539F1BA77BC90071ACC7 /* WebViewController.h */,
 				34D953A01BA77BC90071ACC7 /* WebViewController.m */,
+				34ADF8351BA9EB9D003BFF26 /* DisplayQuestionViewController.h */,
+				34ADF8361BA9EB9D003BFF26 /* DisplayQuestionViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -122,6 +144,8 @@
 				34D953721BA766B70071ACC7 /* stackoverflowing */,
 				34D9538C1BA766B70071ACC7 /* stackoverflowingTests */,
 				34D953711BA766B70071ACC7 /* Products */,
+				88B17892B343D51AD11B9632 /* Pods */,
+				F7EDEC0DD91F9F944898116D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,8 +165,6 @@
 				34D953781BA766B70071ACC7 /* AppDelegate.m */,
 				3493E93B1BA87ED60079478D /* Models */,
 				3493E93C1BA87EE30079478D /* Controllers */,
-				34D9537A1BA766B70071ACC7 /* ViewController.h */,
-				34D9537B1BA766B70071ACC7 /* ViewController.m */,
 				3493E93D1BA87EE90079478D /* Views */,
 				34D953801BA766B70071ACC7 /* Images.xcassets */,
 				34D953731BA766B70071ACC7 /* Supporting Files */,
@@ -176,6 +198,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		88B17892B343D51AD11B9632 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A60287280363125A3B45C1F /* Pods-stackoverflowing.debug.xcconfig */,
+				33CF3F0FBB52E3691CCFBA9B /* Pods-stackoverflowing.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F7EDEC0DD91F9F944898116D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75B954F28FA1B6E7A37AF679 /* libPods-stackoverflowing.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34D953931BA766B70071ACC7 /* Build configuration list for PBXNativeTarget "stackoverflowing" */;
 			buildPhases = (
+				49F87E9817F1BEA252A84DE3 /* Check Pods Manifest.lock */,
 				34D9536C1BA766B70071ACC7 /* Sources */,
 				34D9536D1BA766B70071ACC7 /* Frameworks */,
 				34D9536E1BA766B70071ACC7 /* Resources */,
+				1BD69020FB7C1D4360A00282 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,6 +313,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1BD69020FB7C1D4360A00282 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-stackoverflowing/Pods-stackoverflowing-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49F87E9817F1BEA252A84DE3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		34D9536C1BA766B70071ACC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -279,13 +353,16 @@
 			files = (
 				34D9539B1BA766D00071ACC7 /* BurgerMenuViewController.m in Sources */,
 				34D953A11BA77BC90071ACC7 /* WebViewController.m in Sources */,
+				348133C91BA8ECC10032E8E9 /* QuestionJSONParser.m in Sources */,
+				34A3F5F41BA8BE150090D43F /* StackOverflowService.m in Sources */,
 				3493E93A1BA87CA80079478D /* MyProfileViewController.m in Sources */,
-				34D9537C1BA766B70071ACC7 /* ViewController.m in Sources */,
 				3493E9401BA880E20079478D /* Errors.m in Sources */,
 				34D953791BA766B70071ACC7 /* AppDelegate.m in Sources */,
 				34D9539E1BA768460071ACC7 /* QuestionSearchViewController.m in Sources */,
+				348133CC1BA8ED250032E8E9 /* Question.m in Sources */,
 				34D953761BA766B70071ACC7 /* main.m in Sources */,
 				3493E9371BA87C910079478D /* MyQuestionsViewController.m in Sources */,
+				34ADF8371BA9EB9D003BFF26 /* DisplayQuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +488,7 @@
 		};
 		34D953941BA766B70071ACC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A60287280363125A3B45C1F /* Pods-stackoverflowing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = stackoverflowing/Info.plist;
@@ -421,6 +499,7 @@
 		};
 		34D953951BA766B70071ACC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33CF3F0FBB52E3691CCFBA9B /* Pods-stackoverflowing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = stackoverflowing/Info.plist;

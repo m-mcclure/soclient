@@ -27,8 +27,7 @@
   NSString *redirectURI = @"https://stackexchange.com/oauth/login_success";
   NSString *finalURL = [NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@",baseURL,clientID,redirectURI];
   [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:finalURL]]];
-  
-  // Do any additional setup after loading the view.
+
 }
 
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
