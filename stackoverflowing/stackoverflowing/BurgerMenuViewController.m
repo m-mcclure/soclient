@@ -19,7 +19,7 @@ NSTimeInterval const ktimeToSlideMenuOpen = 0.3;
 CGFloat const kburgerButtonWidth = 50.0;
 CGFloat const kburgerButtonHeight = 50.0;
 
-@interface BurgerMenuViewController () <UITableViewDelegate>
+@interface BurgerMenuViewController () <UITableViewDelegate, UIWebViewDelegate>
 
 @property (strong,nonatomic) UIViewController *topViewController;
 @property (strong,nonatomic) UIButton *burgerButton;
@@ -58,11 +58,20 @@ CGFloat const kburgerButtonHeight = 50.0;
   MyProfileViewController *myProfileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyProfile"];
   self.viewControllers = @[questionSearchVC,myQuestionsVC, myProfileVC];
   
-  [self addChildViewController:questionSearchVC];
-  questionSearchVC.view.frame = self.view.frame;
-  [self.view addSubview:questionSearchVC.view];
-  [questionSearchVC didMoveToParentViewController:self];
-  self.topViewController = questionSearchVC;
+  /* not sure how to do this
+  UINavigationController *displayQNavigationController = [[UINavigationController alloc] initWithRootViewController:questionSearchVC];
+  [self addChildViewController:displayQNavigationController];
+  displayQNavigationController.view.frame = self.view.frame;
+  [self.view addSubview:displayQNavigationController.view];
+  [displayQNavigationController didMoveToParentViewController:self];
+  self.topViewController = displayQNavigationController;
+  */
+  
+   [self addChildViewController:questionSearchVC];
+   questionSearchVC.view.frame = self.view.frame;
+   [self.view addSubview:questionSearchVC.view];
+   [questionSearchVC didMoveToParentViewController:self];
+   self.topViewController = questionSearchVC;
   
   UIButton *burgerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kburgerButtonWidth, kburgerButtonHeight)];
   [burgerButton setImage:[UIImage imageNamed:@"burgerKing"] forState:UIControlStateNormal];
@@ -101,8 +110,6 @@ CGFloat const kburgerButtonHeight = 50.0;
   
   CGPoint velocity = [sender velocityInView:self.topViewController.view];
   CGPoint translation = [sender translationInView:self.topViewController.view];
-  //NSLog(@"velocity x: %f y:%f",velocity.x, velocity.y);
-  //  NSLog(@"translation x: %f y:%f",translation.x, translation.y);
   
   if (sender.state == UIGestureRecognizerStateChanged) {
     if (velocity.x > 0) {

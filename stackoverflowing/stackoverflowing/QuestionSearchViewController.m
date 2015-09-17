@@ -29,7 +29,6 @@
   self.tableView.delegate = self;
 }
 
-
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
   [self.searchBar resignFirstResponder];
   [StackOverflowService questionsForSearchTerm:self.searchBar.text completionHandler:^(NSArray *questions, NSError *error) {
@@ -69,12 +68,8 @@
   int dataIndex = (int) indexPath.row % [self.searchResults count];
   Question *thisQuestion = self.searchResults[dataIndex];
   cell.textLabel.text = [NSString stringWithFormat:@"%@", [thisQuestion title]];
-  //NSString *avatarURL;
-  //@property (strong, nonatomic) UIImage *avatarPic;
- // NSURL *avatarURL = thisQuestion.avatarURL;
   NSURL *imageURL = [NSURL URLWithString:thisQuestion.avatarURL];
   NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
- // UIImage *image = [UIImage imageWithData:imageData];
   cell.imageView.image = [UIImage imageWithData:imageData];
     return cell;
   
@@ -86,8 +81,8 @@
   Question *selectedQuestion = _searchResults[indexPath.row];
   DisplayQuestionViewController *displayQVC = [[DisplayQuestionViewController alloc] init];
   displayQVC.passedURLAsString = selectedQuestion.questionURL;
-  UINavigationController *displayQNavigationController = [[UINavigationController alloc] initWithRootViewController:displayQVC];
-  [self presentViewController:displayQNavigationController animated:true completion:nil];
+  //UINavigationController *displayQNavigationController = [[UINavigationController alloc] initWithRootViewController:displayQVC];
+  [self presentViewController:displayQVC animated:true completion:nil];
 }
 
 /*

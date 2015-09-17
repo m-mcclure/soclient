@@ -7,8 +7,15 @@
 //
 
 #import "MyProfileViewController.h"
+#import "StackOverflowService.h"
+#import "AppUser.h"
 
 @interface MyProfileViewController ()
+
+@property (strong,nonatomic) AppUser *thisAppsUser;
+@property (assign, nonatomic) IBOutlet UIImageView *profileImage;
+@property (assign, nonatomic) IBOutlet UILabel *displayName;
+@property (assign, nonatomic) IBOutlet UILabel *reputationLabel;
 
 @end
 
@@ -16,22 +23,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  [StackOverflowService getAppUserCompletionHandler:^(AppUser *appUser, NSError *error) {
+    self.thisAppsUser = appUser;
+    NSLog(@"YO %@", self.thisAppsUser.displayName);
+    NSURL *imageURL = [NSURL URLWithString:appUser.avatarURL];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    self.profileImage.image = [UIImage imageWithData:imageData];
+    self.displayName.text = appUser.displayName;
+//    NSString *numAsString = [appUser.reputation stringValue];
+    self.reputationLabel.text = [NSString stringWithFormat: @"StackOverflow Reputation: %@", [appUser.reputation stringValue]];
+  }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

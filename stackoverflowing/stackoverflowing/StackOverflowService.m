@@ -11,11 +11,17 @@
 #import "Errors.h"
 #import "Question.h"
 #import "QuestionJSONParser.h"
+#import "AppUser.h"
+#import "AppUserJSONParser.h"
 
 @implementation StackOverflowService
 
 + (void)questionsForSearchTerm:(NSString *)searchTerm completionHandler:(void(^)(NSArray *, NSError*))completionHandler {
-  NSString *url = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=%@&site=stackoverflow", searchTerm];
+  //m8lVvZ3OXiBW82JgM5kdWw((
+  NSString *key = @"m8lVvZ3OXiBW82JgM5kdWw((";
+  NSString *savedToken = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:@"token"];
+  NSString *url = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/search?key=%@&access_token=%@&order=desc&sort=activity&intitle=%@&site=stackoverflow", key, savedToken, searchTerm];
   
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
   
@@ -81,6 +87,40 @@
   return error;
 }
 
++ (void)getAppUserCompletionHandler:(void(^)(AppUser *, NSError*))completionHandler {
+  NSString *key = @"m8lVvZ3OXiBW82JgM5kdWw((";
+  NSString *savedToken = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:@"token"];
+  NSString *url = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/me?key=%@&access_token=%@&order=desc&sort=reputation&site=stackoverflow", key, savedToken];
+  
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  
+  [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    //    NSLog(@"%ld",operation.response.statusCode);
+    //    NSLog(@"%@",responseObject);
+    
+    AppUser *appUser = [AppUserJSONParser appUserInfoFromJSON:responseObject];
+//    
+//    NSLog(@"***number of Qs returned: %lu", (unsigned long)questions.count);
+//    NSLog(@"first Q link %@", [questions[0] questionURL]);
+    
+    completionHandler(appUser,nil);
+    
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    if (operation.response) {
+      NSError *stackOverflowError = [self errorForStatusCode:operation.response.statusCode];
+      
+      dispatch_async(dispatch_get_main_queue(), ^{
+        completionHandler(nil,stackOverflowError);
+      });
+    } else {
+      NSError *reachabilityError = [self checkReachability];
+      if (reachabilityError) {
+        completionHandler(nil, reachabilityError);
+      }
+    }
+  }];
+}
 
 
 @end
